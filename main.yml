@@ -1,4 +1,5 @@
-import pandas as pd
-
-df = pd.read_excel('Template/Template.xlsx')
-print(df)
+- name: Read users from CSV file and return a dictionary
+  read_csv:
+    path: /Template/Template.xlsx
+    key: Hostname
+  register: users
