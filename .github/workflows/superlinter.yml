@@ -1,6 +1,10 @@
 ---
 name: Run Script
-on: push
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - Template/**
 
 jobs:
   lint:
