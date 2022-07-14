@@ -19,5 +19,5 @@ jobs:
     - name: execute script
       run: |
         sudo su
-        python main.yml
+        ansible-playbook main.yml
       
