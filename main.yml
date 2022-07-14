@@ -1,6 +1,4 @@
 - name: "Reading CSV"
-  hosts: localhost
-  gather_facts: no
   tasks:
   - name: "Reading variables"
     read_csv:
