@@ -1,6 +1,10 @@
----
-- name: Read users from CSV file and return a dictionary
-  read_csv:
-    path: /Template/Template.xlsx
-    key: Hostname
-  register: users
+- name: "Reading CSV"
+  hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: "Reading variables"
+    read_csv:
+      path: Template/Template.csv
+    register: input_parameters
+  - debug: 
+      var: input_parameters
