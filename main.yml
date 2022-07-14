@@ -1,3 +1,4 @@
+---
 - name: Read users from CSV file and return a dictionary
   read_csv:
     path: /Template/Template.xlsx
