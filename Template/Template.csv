@@ -1,5 +1,0 @@
-Geography,Country,Unit,Account,Location,Coordinator,DPE,Project,Change Reference,Config Identifier,Install/Decomm Date,Hostname,Serial Number,Platform,Car Scenario,Family,Sub Category,System Status,car_server_username,car_server_password
-TEST,TEST,TEST,TEST,,,,Auto-project,Auto-CR,Optional-CID,,automation-test.host.name1,TEST,TEST,New,Operating System,TEST,Build,anusha.a1@ocean.ibm.com,Loksha12345678@
-TEST,TEST,TEST,TEST,,,,Auto-project,Auto-CR,Optional-CID,,automation-test.host.name2,TEST,TEST,New,Operating System,TEST,Build,anusha.a1@ocean.ibm.com,Loksha12345678@
-TEST,TEST,TEST,TEST,,,,Auto-project,Auto-CR,Optional-CID,,automation-test.host.name3,TEST,TEST,New,Operating System,TEST,Production,anusha.a1@ocean.ibm.com,Loksha12345678@
-TEST,TEST,TEST,TEST,,,,Auto-project,Auto-CR,Optional-CID,,automation-test.host.name4,TEST,TEST,New,Operating System,TEST,Production,anusha.a1@ocean.ibm.com,Loksha12345678@
