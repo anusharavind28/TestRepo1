@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<automation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="AutomationSchema.xsd">
+	<request name="Automation Request for {{ Hostname }}"
+		questionSetVersion="7.2"
+		geography="{{car_instance_geography}}"
+		country="{{car_instance_country}}"
+		unit="{{car_instance_unit}}"
+		account="{{car_instance_account}}"
+		location="{{car_instance_location}}"
+		requestorComments="Network Automation Test"
+		project="{{car_instance_project}}"
+		changeReference="{{car_change_reference}}"
+		configIdentifier="{{configIdentifier}}"
+		hostName="{{ Hostname }}"
+		serialNumber="{{serial_number}}"
+		platform="{{Platform}}"
+		scenario="{{car_scenario}}"
+		systemStatus="Build">
+		<questions family="{{Family}}" subCategory="{{sub_category}}">
+
+			<!-- Fully automated question, YES answer with text evidence... -->
+
+		</questions>
+
+	</request>
+</automation>

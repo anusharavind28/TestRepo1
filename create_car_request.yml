@@ -1,0 +1,35 @@
+---
+- name: Creating a directory
+  file:
+    path: "{{report_dir_at}}"
+    state: directory
+    
+- name: Convert the request.j2 to xml
+  template: 
+    src: './request.j2'
+    dest: "{{report_dir_at}}request.xml"
+
+
+
+- name: Raise CAR request
+  uri:
+    url: "{{ car_server_url }}/sand/secure/rest/requests/automation"
+    # dest: "{{report_dir_at}}AutomationResults.json"
+    src: "{{report_dir_at}}request.xml"
+    method: POST
+    status_code: [200]
+    validate_certs: no
+    use_proxy: false
+    headers:
+      Accept: "application/json"
+      Cookie: "{{ login_cookie }}"
+      Content-Type: "application/xml"
+
+
+  register: request_status
+
+- debug:
+    msg: request_status.json[0].requestId
+
+- set_fact:
+    car_record_id: "{{ request_status.json[0].requestId }}"
