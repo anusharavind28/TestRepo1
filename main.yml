@@ -6,5 +6,55 @@
     read_csv:
       path: Template/Template.csv
     register: input_parameters
-  - debug: 
-      var: input_parameters
+  
+#   - debug: 
+#       var: input_parameters
+  
+  - set_fact:
+      car_server_username: "{{users.list[0]['car_server_username']}}"
+      car_server_password: "{{users.list[0]['car_server_password']}}"
+
+  - name: Authenticate with CAR server
+    uri:
+      url: "{{ car_server_url }}/sand/j_security_check"
+      method: POST
+      body_format: form-urlencoded
+      body:
+        j_username: "{{ car_server_username }}"
+        j_password: "{{ car_server_password }}"
+      validate_certs: no
+      follow_redirects: all
+      return_content: yes
+      status_code: 200
+      use_proxy: false
+    until: login.status == 200
+    retries: 2
+    delay: 10
+    register: login   
+  
+  - set_fact:
+      login_cookie: "{{login.cookies_string}}"
+
+  
+  - include_tasks: create_car_request.yml
+    vars:
+      Hostname: "{{item['Hostname']}}"
+      car_instance_geography: "{{item['Geography']}}"
+      car_instance_country: "{{item['Country']}}"
+      car_instance_unit: "{{item['Unit']}}"
+      car_instance_account: "{{item['Account']}}"
+      car_instance_location: "{{item['Location']}}"
+      Coordinator: "{{item['Coordinator']}}"
+      DPE: "{{item['DPE']}}"
+      configIdentifier: "{{item['Config Identifier']}}"
+      car_instance_project: "{{item['Project']}}"
+      car_change_reference: "{{item['Change Reference']}}"
+      serial_number: "{{item['Serial Number']}}"
+      Platform: "{{item['Platform']}}"
+      car_scenario: "{{item['Car Scenario']}}"
+      Family: "{{item['Family']}}"
+      sub_category: "{{item['Sub Category']}}"
+      systemStatus: "{{item['System Status']}}"
+    with_items: "{{users.list}}"
+
+
