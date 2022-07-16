@@ -11,8 +11,8 @@
 #       var: input_parameters
   
   - set_fact:
-      car_server_username: "{{users.list[0]['car_server_username']}}"
-      car_server_password: "{{users.list[0]['car_server_password']}}"
+      car_server_username: "{{input_parameters.list[0]['car_server_username']}}"
+      car_server_password: "{{input_parameters.list[0]['car_server_password']}}"
 
   - name: Authenticate with CAR server
     uri:
@@ -55,6 +55,6 @@
       Family: "{{item['Family']}}"
       sub_category: "{{item['Sub Category']}}"
       systemStatus: "{{item['System Status']}}"
-    with_items: "{{users.list}}"
+    with_items: "{{input_parameters.list}}"
 
 
